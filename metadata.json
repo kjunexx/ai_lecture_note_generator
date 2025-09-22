@@ -1,0 +1,5 @@
+{
+  "name": "AI Lecture Note Generator",
+  "description": "An AI-powered web application that generates handwriting-style digital notes from lecture materials (PDF) and recordings (audio). It uses Gemini to analyze text and images, creating comprehensive, downloadable notes.",
+  "requestFramePermissions": []
+}

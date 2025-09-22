@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 강의 노트 생성기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Gaegu&display=swap" rel="stylesheet">
+    
+    <!-- pdf.js for client-side PDF processing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+      pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js`;
+    </script>
+
+    <!-- jspdf and html2canvas for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+      /* Define custom font from local file */
+      @font-face {
+        font-family: 'UhBeeSe_hyun';
+        src: url('/UhBeeSe_hyun.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      /* == USER'S CUSTOM FONT == */
+      /* Add your custom font file (e.g., MyHandwritingFont.ttf) to the root directory */
+      @font-face {
+        font-family: 'MyHandwriting';
+        src: url('/MyHandwritingFont.ttf') format('truetype'); /* <-- Replace with your font file name */
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      /* Custom font classes to be used with Tailwind */
+      .font-gaegu { font-family: 'Gaegu', cursive; }
+      .font-nanum-pen { font-family: 'Nanum Pen Script', cursive; }
+      .font-uhbee-sehyun { font-family: 'UhBeeSe_hyun', sans-serif; }
+      .font-my-handwriting { font-family: 'MyHandwriting', sans-serif; } /* <-- New class for custom font */
+      
+      body {
+        font-family: 'Inter', sans-serif; /* A nice default sans-serif font */
+      }
+    </style>
+     <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              gaegu: ['Gaegu', 'cursive'],
+              'nanum-pen': ['"Nanum Pen Script"', 'cursive'],
+              'uhbee-sehyun': ['UhBeeSe_hyun', 'sans-serif'],
+              'my-handwriting': ['MyHandwriting', 'sans-serif'], /* <-- New font for Tailwind */
+            },
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.17.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-[#F7F8FC]">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
